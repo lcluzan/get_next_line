@@ -6,11 +6,29 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:31:36 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/08 11:38:21 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:22:56 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <get_next_line.h>
+#include "get_next_line.h"
+
+char	*ft_strdup(const char *s1)
+{
+	char	*new;
+	size_t	i;
+
+	new = malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		new[i] = s1[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
 
 size_t	ft_strlen(const char *str)
 {
@@ -21,6 +39,7 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+
 char	*ft_substr(char const *s, size_t start, size_t len)
 {
 	char	*new;
@@ -42,6 +61,7 @@ char	*ft_substr(char const *s, size_t start, size_t len)
 	new[i] = '\0';
 	return (new);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new;
@@ -66,23 +86,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i + j] = '\0';
 	return (new);
 }
-char	*ft_strdup(const char *s1)
-{
-	char	*new;
-	size_t	i;
 
-	new = malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (!new)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		new[i] = s1[i];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
-}
 char	*ft_strchr(const char *s, int c)
 {
 	int		i;
