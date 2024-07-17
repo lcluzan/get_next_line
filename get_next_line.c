@@ -6,7 +6,7 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:16:42 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/16 14:39:36 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/17 14:28:25 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,22 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	fd;
+	char	*line;
 
 	fd = open("text.txt", O_RDONLY);
-	printf("GNL 1: %s", get_next_line(fd));
-	printf("GNL 2: %s", get_next_line(fd));
-	printf("GNL 3: %s", get_next_line(fd));
-	printf("GNL 4: %s", get_next_line(fd));
-	printf("GNL 5: %s", get_next_line(fd));
-	printf("GNL 6: %s", get_next_line(fd));
-	printf("GNL 7: %s", get_next_line(fd));
-	printf("GNL 8: %s", get_next_line(fd));
-	printf("GNL 9: %s", get_next_line(fd));
+	if (fd == -1)
+	{
+		perror("Error opening file");
+		return (1);
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
 	close(fd);
-}
+	return (0);
+}*/
