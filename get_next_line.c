@@ -6,13 +6,13 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:16:42 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/17 14:28:25 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/17 16:48:00 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*stash_filling(int fd, char *stash, char *buffer)
+char	*fill_stash(int fd, char *stash, char *buffer)
 {
 	ssize_t	nbytes;
 
@@ -106,7 +106,7 @@ char	*get_next_line(int fd)
 	}
 	if (!buffer)
 		return (NULL);
-	stash = stash_filling(fd, stash, buffer);
+	stash = fill_stash(fd, stash, buffer);
 	if (*stash == 0)
 	{
 		free (stash);

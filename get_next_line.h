@@ -6,7 +6,7 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:10:26 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/16 14:15:14 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/17 16:17:10 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 
 /*GNL functions*/
-char	*stash_filling(int fd, char *stash, char *buffer);
+char	*fill_stash(int fd, char *stash, char *buffer);
 char	*extract_new_stash(char	*stash);
 char	*extract_line(char *stash, char *line);
 char	*get_next_line(int fd);
