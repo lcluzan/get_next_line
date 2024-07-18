@@ -6,7 +6,7 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:16:42 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/17 16:48:00 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/18 13:35:08 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*fill_stash(int fd, char *stash, char *buffer)
 		}
 		buffer[nbytes] = 0;
 		stash = ft_strjoin (stash, buffer);
-		if ((ft_strchr(buffer, '\n')))
+		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
 	free (buffer);
@@ -117,7 +117,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int	fd;
 	char	*line;
@@ -135,4 +135,4 @@ char	*get_next_line(int fd)
 	}
 	close(fd);
 	return (0);
-}*/
+}
