@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nouillebobby <nouillebobby@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 14:16:42 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/07/18 13:35:08 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/07/20 11:21:02 by nouillebobb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,31 @@ char	*fill_stash(int fd, char *stash, char *buffer)
 	return (stash);
 }
 
+char	*extract_line(char *stash, char *line)
+{
+	int	len;
+	int	i;
+
+	len = 0;
+	i = 0;
+	if (stash == NULL)
+		return (NULL);
+	while (stash[len] != '\n' && stash[len])
+		len++;
+	if (stash[len] == '\n')
+		len++;
+	line = malloc((len + 1) * sizeof(char));
+	if (!line)
+		return (NULL);
+	while (i < len)
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	line[i] = 0;
+	return (line);
+}
+
 char	*extract_new_stash(char	*stash)
 {
 	int		len;
@@ -61,31 +86,6 @@ char	*extract_new_stash(char	*stash)
 	free (stash);
 	new_stash[i] = 0;
 	return (new_stash);
-}
-
-char	*extract_line(char *stash, char *line)
-{
-	int	len;
-	int	i;
-
-	len = 0;
-	i = 0;
-	if (stash == NULL)
-		return (NULL);
-	while (stash[len] != '\n' && stash[len])
-		len++;
-	if (stash[len] == '\n')
-		len++;
-	line = malloc((len + 1) * sizeof(char));
-	if (!line)
-		return (NULL);
-	while (i < len)
-	{
-		line[i] = stash[i];
-		i++;
-	}
-	line[i] = 0;
-	return (line);
 }
 
 char	*get_next_line(int fd)
@@ -117,7 +117,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	fd;
 	char	*line;
@@ -135,4 +135,4 @@ int	main(void)
 	}
 	close(fd);
 	return (0);
-}
+}*/
